@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "observesu.com"
+        }
+      ],
+      "destination": "https://www.observesu.com",
+      "permanent": true
+    }
+  ]
+}
