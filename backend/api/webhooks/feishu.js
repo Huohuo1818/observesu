@@ -1,6 +1,8 @@
 import {
   buildChallengeResponse,
   buildFeishuAck,
+  decryptFeishuPayload,
+  isEncryptedEvent,
   isChallengeEvent,
   normalizeFeishuEvent
 } from "../../bots/feishu/events.js";
@@ -14,7 +16,28 @@ export default async function handler(req, res) {
     return;
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+  let body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+
+  if (isEncryptedEvent(body)) {
+    if (!env.feishuEncryptKey) {
+      res.status(400).json({
+        ok: false,
+        error: "missing_encrypt_key"
+      });
+      return;
+    }
+
+    try {
+      body = decryptFeishuPayload(env.feishuEncryptKey, body.encrypt);
+    } catch (error) {
+      res.status(400).json({
+        ok: false,
+        error: "decrypt_failed",
+        detail: error instanceof Error ? error.message : "unknown_error"
+      });
+      return;
+    }
+  }
 
   if (isChallengeEvent(body)) {
     res.status(200).json(buildChallengeResponse(body));

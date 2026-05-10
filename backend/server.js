@@ -3,6 +3,8 @@ import { getEnv } from "./config/env.js";
 import {
   buildChallengeResponse,
   buildFeishuAck,
+  decryptFeishuPayload,
+  isEncryptedEvent,
   isChallengeEvent,
   normalizeFeishuEvent,
   parseJsonBody
@@ -64,7 +66,7 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === "POST" && req.url === "/webhooks/feishu") {
     const rawBody = await readRequestBody(req);
-    const body = parseJsonBody(rawBody);
+    let body = parseJsonBody(rawBody);
 
     if (!body) {
       sendJson(res, 400, {
@@ -72,6 +74,27 @@ const server = http.createServer(async (req, res) => {
         error: "invalid_json"
       });
       return;
+    }
+
+    if (isEncryptedEvent(body)) {
+      if (!env.feishuEncryptKey) {
+        sendJson(res, 400, {
+          ok: false,
+          error: "missing_encrypt_key"
+        });
+        return;
+      }
+
+      try {
+        body = decryptFeishuPayload(env.feishuEncryptKey, body.encrypt);
+      } catch (error) {
+        sendJson(res, 400, {
+          ok: false,
+          error: "decrypt_failed",
+          detail: error instanceof Error ? error.message : "unknown_error"
+        });
+        return;
+      }
     }
 
     if (isChallengeEvent(body)) {

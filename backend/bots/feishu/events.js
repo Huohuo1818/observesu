@@ -1,3 +1,5 @@
+import crypto from "node:crypto";
+
 export function parseJsonBody(rawBody) {
   if (!rawBody) return {};
   try {
@@ -11,10 +13,24 @@ export function isChallengeEvent(body) {
   return Boolean(body && body.challenge);
 }
 
+export function isEncryptedEvent(body) {
+  return Boolean(body && typeof body.encrypt === "string" && body.encrypt.length > 0);
+}
+
 export function buildChallengeResponse(body) {
   return {
     challenge: body.challenge
   };
+}
+
+export function decryptFeishuPayload(encryptKey, encryptedText) {
+  const aesKey = crypto.createHash("sha256").update(encryptKey, "utf8").digest();
+  const encrypted = Buffer.from(encryptedText, "base64");
+  const iv = encrypted.subarray(0, 16);
+  const ciphertext = encrypted.subarray(16);
+  const decipher = crypto.createDecipheriv("aes-256-cbc", aesKey, iv);
+  const decrypted = Buffer.concat([decipher.update(ciphertext), decipher.final()]).toString("utf8");
+  return JSON.parse(decrypted);
 }
 
 export function normalizeFeishuEvent(body) {
