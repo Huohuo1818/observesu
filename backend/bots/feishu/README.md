@@ -10,6 +10,11 @@ Planned first-stage flow:
 4. Pass the request to the OpenAI layer.
 5. Route generated output to the GitHub PR automation layer.
 
+Current local callback targets:
+
+- Event callback URL path: `/webhooks/feishu`
+- Setup helper endpoint: `/feishu/setup`
+
 Expected future files:
 
 - `events.js`: event handler and Feishu callback verification

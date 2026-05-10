@@ -39,6 +39,8 @@ Planned flow:
 - API routes and webhook verification: `backend/api/`
 - OpenAI request pipeline: `backend/integrations/openai/`
 - GitHub PR automation: `backend/integrations/github/`
+- Feishu setup helper endpoint: `GET /feishu/setup`
+- Feishu event callback endpoint: `POST /webhooks/feishu`
 - Secrets to provision later:
   - `OPENAI_API_KEY`
   - `GITHUB_TOKEN`
@@ -54,3 +56,4 @@ Planned flow:
   - `cd backend`
   - `npm run dev`
   - open `http://localhost:3000/health`
+  - Feishu setup helper: `http://localhost:3000/feishu/setup`

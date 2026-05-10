@@ -17,3 +17,9 @@ Suggested subdirectories:
 - `integrations/openai/`
 - `integrations/github/`
 - `config/`
+
+Current deployable endpoints:
+
+- `GET /health`
+- `GET /feishu/setup`
+- `POST /webhooks/feishu`

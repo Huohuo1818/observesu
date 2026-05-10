@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/feishu/setup",
+      "destination": "/api/feishu/setup"
+    },
+    {
+      "source": "/webhooks/feishu",
+      "destination": "/api/webhooks/feishu"
+    }
+  ]
+}
