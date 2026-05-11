@@ -2131,6 +2131,21 @@ h3 {
   color: rgba(44, 34, 24, 0.66);
 }
 
+.closing-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(44, 34, 24, 0.58);
+}
+
+.closing-card:hover .closing-cta {
+  color: rgba(44, 34, 24, 0.84);
+}
+
 .site-footer {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3011,6 +3026,12 @@ h3 {
   .closing-card strong {
     margin-bottom: 10px;
     font-size: 1.42rem;
+  }
+
+  .closing-cta {
+    margin-top: 18px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
   }
 
   .closing-card p {
