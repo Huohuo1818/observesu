@@ -1847,6 +1847,10 @@ h3 {
   line-height: 1.75;
 }
 
+.series-list a {
+  display: block;
+}
+
 .series-list strong {
   color: var(--ink);
   font-weight: 600;
