@@ -211,8 +211,15 @@ h3 {
   animation-delay: 120ms;
 }
 
-.hero-title-break {
-  display: none;
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.08em;
+}
+
+.hero-title span {
+  display: block;
 }
 
 .hero-copy .lead {
@@ -2337,8 +2344,12 @@ h3 {
     font-size: 1.45rem;
   }
 
-  .hero-title-break {
-    display: block;
+  .hero-title {
+    gap: 0.12em;
+  }
+
+  .hero-title span {
+    white-space: nowrap;
   }
 
   .main-nav,
