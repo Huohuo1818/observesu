@@ -2377,6 +2377,12 @@ h3 {
     line-height: 1.8;
   }
 
+  .subpage-body .subpage-hero h1,
+  .subpage-body .series-subpage-copy-on-image h1 {
+    font-size: clamp(1.72rem, 8.2vw, 2.28rem);
+    line-height: 1.14;
+  }
+
   .series-subpage-hero {
     margin-left: 20px;
     margin-right: 20px;
@@ -2403,6 +2409,7 @@ h3 {
 
   .collection-page .product-showcase,
   .collection-page .product-showcase-reverse {
+    display: block;
     grid-template-columns: 1fr;
     gap: 14px;
     padding-bottom: 34px;
@@ -2427,7 +2434,9 @@ h3 {
   }
 
   .collection-page .product-showcase-media-card {
+    display: block;
     position: static;
+    margin-bottom: 10px;
   }
 
   .collection-index {
@@ -2579,19 +2588,26 @@ h3 {
   }
 
   .collection-page .product-showcase-copy h2 {
-    font-size: clamp(2rem, 11vw, 2.8rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.82rem, 8.8vw, 2.34rem);
+    margin-bottom: 8px;
   }
 
   .collection-page .product-tagline {
-    margin-bottom: 16px;
-    font-size: 0.98rem;
-    line-height: 1.72;
+    max-width: 16em;
+    margin-bottom: 14px;
+    font-size: 0.94rem;
+    line-height: 1.68;
   }
 
   .collection-page .product-showcase-copy > p:not(.product-entry-subtitle):not(.product-tagline) {
-    font-size: 0.95rem;
-    line-height: 1.84;
+    max-width: 18.5em;
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .collection-page .product-entry-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.1em;
   }
 
   .product-detail-notes {
@@ -2630,40 +2646,80 @@ h3 {
 
   .brand-position-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px 0 8px;
+    gap: 18px;
+    padding: 18px 0 10px;
+    border-top: 0;
+    border-bottom: 0;
   }
 
   .brand-position-lead {
     min-height: 0;
-    gap: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(44, 34, 24, 0.1);
+    gap: 6px;
+    padding: 0 0 6px;
+    border-bottom: 0;
   }
 
   .brand-position-lead h2 {
-    font-size: clamp(2.1rem, 11vw, 3rem);
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
   }
 
   .brand-position-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 10px 12px;
   }
 
   .brand-position-list article {
-    min-height: 112px;
-    padding: 16px 14px;
-    border: 1px solid rgba(44, 34, 24, 0.1);
-    background: rgba(251, 248, 241, 0.78);
+    min-height: 0;
+    padding: 14px 14px 15px;
+    border: 1px solid rgba(44, 34, 24, 0.08);
+    background: linear-gradient(180deg, rgba(251, 248, 241, 0.94), rgba(245, 238, 228, 0.78));
   }
 
-  .brand-position-list article:first-child {
+  .brand-position-list article:first-child,
+  .brand-position-list article:nth-child(3),
+  .brand-position-list article:nth-child(5) {
     grid-column: 1 / -1;
   }
 
+  .brand-position-list article:nth-child(2),
+  .brand-position-list article:nth-child(4) {
+    min-height: 74px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(248, 243, 234, 0.72);
+  }
+
+  .brand-position-list article:nth-child(2) {
+    order: 1;
+  }
+
+  .brand-position-list article:nth-child(4) {
+    order: 2;
+  }
+
+  .brand-position-list article:first-child {
+    order: 3;
+  }
+
+  .brand-position-list article:nth-child(3) {
+    order: 4;
+  }
+
+  .brand-position-list article:nth-child(5) {
+    order: 5;
+  }
+
   .brand-position-list h3 {
-    font-size: clamp(1rem, 4.8vw, 1.2rem);
-    line-height: 1.55;
+    font-size: clamp(0.98rem, 4.8vw, 1.16rem);
+    line-height: 1.58;
+  }
+
+  .brand-position-list article:nth-child(2) h3,
+  .brand-position-list article:nth-child(4) h3 {
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(44, 34, 24, 0.62);
   }
 
   .product-showcase-visual-card {
@@ -2890,7 +2946,7 @@ h3 {
   .gift-curation-band-copy h2,
   .gift-editorial-head h2,
   .gift-collector-copy h2 {
-    font-size: clamp(1.45rem, 7.5vw, 2rem);
+    font-size: clamp(1.28rem, 6.8vw, 1.72rem);
   }
 
   .gift-curation-band-grid article {
@@ -2905,23 +2961,24 @@ h3 {
     padding-top: 30px;
   }
 
-  .gift-editorial-product-card {
-    aspect-ratio: 0.8 / 1.08;
+  .gift-editorial-bottle-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
-  .gift-editorial-bottle-row {
-    gap: 10px;
+  .gift-editorial-product-card {
+    aspect-ratio: 0.74 / 1.05;
   }
 
   .gift-editorial-panel h3 {
-    font-size: 1.28rem;
+    font-size: 1.12rem;
   }
 
   .gift-editorial-panel > p:not(.product-entry-subtitle),
   .gift-editorial-head p,
   .gift-collector-copy p {
-    font-size: 0.94rem;
-    line-height: 1.76;
+    font-size: 0.9rem;
+    line-height: 1.72;
   }
 
   .gift-box-meta li,
