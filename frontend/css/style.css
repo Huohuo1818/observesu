@@ -2302,11 +2302,20 @@ h3 {
   }
 
   .announcement-bar {
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
     padding-top: 10px;
+    padding-right: 148px;
     padding-bottom: 10px;
+  }
+
+  .announcement-bar a {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding-bottom: 0;
   }
 
   .site-header {
@@ -3024,20 +3033,20 @@ h3 {
   }
 
   .closing-card strong {
-    margin-bottom: 10px;
-    font-size: 1.42rem;
+    margin-bottom: 8px;
+    font-size: 1.24rem;
   }
 
   .closing-cta {
-    margin-top: 18px;
-    font-size: 11px;
+    margin-top: 14px;
+    font-size: 10px;
     letter-spacing: 0.1em;
   }
 
   .closing-card p {
     max-width: none;
-    font-size: 0.9rem;
-    line-height: 1.68;
+    font-size: 0.84rem;
+    line-height: 1.62;
   }
 }
 
