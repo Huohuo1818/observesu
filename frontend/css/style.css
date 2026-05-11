@@ -1763,6 +1763,7 @@ h3 {
 }
 
 .series-image-wrap {
+  display: block;
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 4.4;
