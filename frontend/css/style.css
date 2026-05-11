@@ -211,6 +211,10 @@ h3 {
   animation-delay: 120ms;
 }
 
+.hero-title-break {
+  display: none;
+}
+
 .hero-copy .lead {
   animation-delay: 240ms;
 }
@@ -2331,6 +2335,10 @@ h3 {
 
   .brand-mark {
     font-size: 1.45rem;
+  }
+
+  .hero-title-break {
+    display: block;
   }
 
   .main-nav,
