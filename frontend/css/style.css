@@ -113,6 +113,10 @@ h3 {
 .main-nav {
   justify-content: center;
   align-items: center;
+  padding: 8px 18px;
+  border: 1px solid rgba(44, 34, 24, 0.08);
+  background: rgba(251, 248, 241, 0.44);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
 .nav-dropdown {
@@ -163,6 +167,33 @@ h3 {
   background: linear-gradient(90deg, transparent 0%, rgba(167, 134, 83, 0.75) 50%, transparent 100%);
   transform: translateY(1px);
   opacity: 0.9;
+}
+
+.main-nav > a,
+.nav-dropdown > a {
+  position: relative;
+  padding: 4px 0;
+}
+
+.main-nav > a::after,
+.nav-dropdown > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: rgba(167, 134, 83, 0.46);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.main-nav > a:hover::after,
+.nav-dropdown:hover > a::after,
+.nav-dropdown:focus-within > a::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .hero-grid {
