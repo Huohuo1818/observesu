@@ -2997,6 +2997,47 @@ h3 {
   .gift-collector-figure {
     aspect-ratio: 1 / 0.88;
   }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 78vw));
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    border-top: 0;
+    border-bottom: 0;
+    scroll-snap-type: x proximity;
+  }
+
+  .closing-card {
+    min-height: 0;
+    padding: 18px 16px 20px;
+    border: 1px solid rgba(44, 34, 24, 0.1);
+    background: rgba(251, 248, 241, 0.86);
+    scroll-snap-align: start;
+  }
+
+  .closing-card,
+  .closing-card:last-child {
+    border-bottom: 1px solid rgba(44, 34, 24, 0.1);
+  }
+
+  .closing-label {
+    margin-bottom: 34px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .closing-card strong {
+    margin-bottom: 10px;
+    font-size: 1.42rem;
+  }
+
+  .closing-card p {
+    max-width: none;
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
 }
 
 @keyframes heroBreath {
