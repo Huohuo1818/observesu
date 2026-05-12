@@ -97,19 +97,6 @@ h3 {
   letter-spacing: 0.03em;
 }
 
-.brand-mark-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 72px;
-}
-
-.brand-mark-logo img {
-  display: block;
-  width: 72px;
-  height: auto;
-}
-
 .main-nav,
 .footer-links {
   display: flex;
@@ -2383,11 +2370,6 @@ h3 {
 
   .brand-mark {
     font-size: 1.45rem;
-  }
-
-  .brand-mark-logo,
-  .brand-mark-logo img {
-    width: 58px;
   }
 
   .hero-title {
