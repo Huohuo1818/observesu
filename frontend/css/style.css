@@ -74,7 +74,7 @@ ul {
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: 220px 1fr 220px;
+  grid-template-columns: 104px 1fr 104px;
   align-items: center;
   gap: 24px;
   padding: 18px 32px;
@@ -95,6 +95,19 @@ h3 {
   font-size: 1.85rem;
   font-weight: 500;
   letter-spacing: 0.03em;
+}
+
+.brand-mark-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 72px;
+}
+
+.brand-mark-logo img {
+  display: block;
+  width: 72px;
+  height: auto;
 }
 
 .main-nav,
@@ -2370,6 +2383,11 @@ h3 {
 
   .brand-mark {
     font-size: 1.45rem;
+  }
+
+  .brand-mark-logo,
+  .brand-mark-logo img {
+    width: 58px;
   }
 
   .hero-title {
